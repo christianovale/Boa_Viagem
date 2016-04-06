@@ -1,0 +1,62 @@
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="br.com.christiano.boaviagem.boaviagem"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <!-- Cliente OAuth
+Este é seu ID do cliente
+557138503857-jkt7soe29d6h5on377jf6a9oh26178a1.apps.googleusercontent.com-->
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/plane"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@android:style/Theme.NoTitleBar">
+
+        <activity android:name=".BoaViagemActivity"
+            android:label="@string/app_name">
+                <intent-filter>
+                    <action android:name="android.intent.action.MAIN"/>
+                    <category android:name="android.intent.category.LAUNCHER"/>
+                </intent-filter>
+        </activity>
+        <activity android:name=".DashboardActivity"/>
+        <activity android:name=".ViagemActivity"/>
+        <activity android:name=".GastoActivity"/>
+        <activity android:name=".ViagemListActivity"/>
+        <activity android:name=".ConfiguracoesActivity"/>
+        <activity android:name=".GastoListActivity" android:parentActivityName=".BoaViagemActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SENDTO" />
+                <data android:scheme="mailto" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="br.com.christiano.boaviagem.boaviagem.BoaViagemActivity" />
+        </activity>
+
+
+        <provider
+            android:name=".provider.BoaViagemProvider"
+            android:authorities="br.com.christiano.boaviagem.boaviagem.provider" >
+            <path-permission
+                android:path="viagem"
+                android:permission="br.com.christiano.boaviagem.boaviagem.provider.permission.ALL" />
+        </provider>
+
+    </application>
+
+</manifest>

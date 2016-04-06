@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/selecionarViagem"
+        android:icon="@android:drawable/ic_menu_add"
+        android:title="@string/selecionar_viagem"/>
+
+    <item
+        android:id="@+id/inicio"
+        android:title="@string/inicio"
+        android:icon="@android:drawable/ic_menu_revert"/>
+</menu>
